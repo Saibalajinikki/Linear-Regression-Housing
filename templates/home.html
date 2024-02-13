@@ -1,3 +1,37 @@
-<h1>
-Yello
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Yellow</h1>
+    
+    <form action="/predict" method="post">
+        <label for="latitude">Latitude:</label>
+        <input type="text" name="latitude" id="latitude" required><br>
+
+        <label for="housing_median_age">Housing Median Age:</label>
+        <input type="text" name="housing_median_age" id="housing_median_age" required><br>
+
+        <label for="total_rooms">Total Rooms:</label>
+        <input type="text" name="total_rooms" id="total_rooms" required><br>
+
+        <label for="households">Households:</label>
+        <input type="text" name="households" id="households" required><br>
+
+        <label for="median_income">Median Income:</label>
+        <input type="text" name="median_income" id="median_income" required><br>
+
+        <label for="ocean_proximity_encoded">Ocean Proximity Encoded:</label>
+        <input type="text" name="ocean_proximity_encoded" id="ocean_proximity_encoded" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_test %}
+        <p>{{ prediction_test }}</p>
+    {% endif %}
+</body>
+</html>
