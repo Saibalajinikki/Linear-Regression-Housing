@@ -4,28 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Yellow</h1>
     
     <form action="/predict" method="post">
         <label for="latitude">Latitude:</label>
-        <input type="text" name="latitude" id="latitude" required><br>
+        <input type="text" name="latitude" id="latitude" required>
 
         <label for="housing_median_age">Housing Median Age:</label>
-        <input type="text" name="housing_median_age" id="housing_median_age" required><br>
+        <input type="text" name="housing_median_age" id="housing_median_age" required>
 
         <label for="total_rooms">Total Rooms:</label>
-        <input type="text" name="total_rooms" id="total_rooms" required><br>
+        <input type="text" name="total_rooms" id="total_rooms" required>
 
         <label for="households">Households:</label>
-        <input type="text" name="households" id="households" required><br>
+        <input type="text" name="households" id="households" required>
 
         <label for="median_income">Median Income:</label>
-        <input type="text" name="median_income" id="median_income" required><br>
+        <input type="text" name="median_income" id="median_income" required>
 
         <label for="ocean_proximity_encoded">Ocean Proximity Encoded:</label>
-        <input type="text" name="ocean_proximity_encoded" id="ocean_proximity_encoded" required><br>
+        <input type="text" name="ocean_proximity_encoded" id="ocean_proximity_encoded" required>
 
         <input type="submit" value="Predict">
     </form>
