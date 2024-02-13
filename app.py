@@ -13,15 +13,23 @@ def home():
 @app.route('/predict.api', methods=['POST'])
 def predict_api():
     try:
-        data = request.json['data']
-        print(data)
-        print(np.array(list(data.values())).reshape(1, -1))
-        new_data = np.array(list(data.values())).reshape(1, -1)
-        output = regmodel.predict(new_data)
-        print(output[0])
-        return jsonify({'prediction': output[0]})
+        data = request.json
+        if data is not None and 'data' in data:
+            data = data['data']
+            print("Raw data from JSON:", data)
+
+            input_array = np.array(list(data.values())).reshape(1, -1)
+            print("Input array for prediction:", input_array)
+
+            output = regmodel.predict(input_array)
+            print("Prediction output:", output[0])
+
+            return jsonify({'prediction': output[0]})
+        else:
+            return jsonify({'error': 'Invalid JSON format. Expected {"data": {...}}'})
     except Exception as e:
         return jsonify({'error': str(e)})
+
 
 @app.route('/predict', methods =['POST'])
 def predict():
@@ -33,4 +41,3 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
